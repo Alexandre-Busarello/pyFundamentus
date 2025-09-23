@@ -1,7 +1,5 @@
-fastapi==0.82.0
-uvicorn==0.18.3
+fastapi==0.68.0
+uvicorn[standard]==0.15.0
 beautifulsoup4==4.11.1
 requests==2.28.1
 requests-cache==0.9.6
-pydantic==1.10.2
-starlette==0.19.1

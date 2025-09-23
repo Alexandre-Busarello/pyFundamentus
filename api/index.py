@@ -12,13 +12,8 @@ import json
 from decimal import Decimal
 from datetime import datetime
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import JSONResponse
 
-app = FastAPI(
-    title="Fundamentus API",
-    description="API para acessar dados fundamentalistas de ações brasileiras",
-    version="1.0.0"
-)
+app = FastAPI()
 
 def convert_to_json_serializable(obj):
     """Convert InformationItem objects and other non-serializable types to JSON-serializable format"""
@@ -90,7 +85,7 @@ async def get_stock(symbol: str):
     """Get stock fundamental data"""
     try:
         data = get_stock_data(symbol)
-        return JSONResponse(content=data)
+        return data
     except HTTPException as e:
         raise e
     except Exception as e:
