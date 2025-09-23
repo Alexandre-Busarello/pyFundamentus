@@ -259,6 +259,33 @@ curl https://seu-projeto.vercel.app/stock/PETR4
 
 ## 🐛 Troubleshooting
 
+### ❌ FUNCTION_INVOCATION_FAILED (Erro 500)
+
+**Problema mais comum:** A biblioteca `fundamentus` não está sendo encontrada.
+
+**Soluções:**
+
+1. **Verificar estrutura de importação:**
+   ```python
+   import sys
+   import os
+   
+   # Adicionar o diretório raiz ao path
+   sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+   
+   import fundamentus
+   ```
+
+2. **Usar versão de teste simples:**
+   - Renomeie `vercel-simple.json` para `vercel.json`
+   - Isso usará `api/simple.py` que não depende da biblioteca fundamentus
+   - Teste se a API básica funciona primeiro
+
+3. **Verificar logs da Vercel:**
+   - Acesse o dashboard da Vercel
+   - Vá em Functions > View Function Logs
+   - Veja o erro específico
+
 ### Erro de timeout
 Se a API demorar mais que 10 segundos:
 - Otimize o código da biblioteca fundamentus
@@ -267,8 +294,8 @@ Se a API demorar mais que 10 segundos:
 
 ### Erro de dependências
 Se houver problemas com dependências:
-- Verifique se todas estão no `requirements.txt`
-- Use versões específicas das dependências
+- Use versões flexíveis no `requirements.txt` (>=)
+- Evite versões muito específicas
 - Teste localmente antes do deploy
 
 ### Erro de importação
@@ -276,6 +303,19 @@ Se houver erro ao importar a biblioteca fundamentus:
 - Verifique se a estrutura de pastas está correta
 - Confirme que `__init__.py` existe em todas as pastas
 - Use imports relativos quando necessário
+
+### Passos para debug:
+
+1. **Teste a versão simples primeiro:**
+   ```bash
+   mv vercel.json vercel-full.json
+   mv vercel-simple.json vercel.json
+   git add . && git commit -m "Test simple API" && git push
+   ```
+
+2. **Se a versão simples funcionar, o problema é na importação da biblioteca**
+
+3. **Verifique os logs da Vercel para detalhes específicos**
 
 ## 📝 Comandos Úteis
 

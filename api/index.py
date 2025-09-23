@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+import sys
+import os
+
+# Adicionar o diretório raiz ao path para importar a biblioteca fundamentus
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import fundamentus
 import json
 from decimal import Decimal
