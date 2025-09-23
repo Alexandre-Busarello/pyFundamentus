@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 """
-Versão minimalista da API para máxima compatibilidade com Vercel
+Versão ultra-minimalista da API para máxima compatibilidade com Vercel
 """
 
 import sys
@@ -14,73 +14,93 @@ from datetime import datetime
 # Adicionar o diretório raiz ao path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-try:
-    from fastapi import FastAPI, HTTPException
-    
-    app = FastAPI()
-    
-    @app.get("/")
-    async def root():
-        return {
-            "message": "Fundamentus API - Minimal Version",
-            "status": "online",
-            "version": "1.0.0-minimal"
-        }
-    
-    @app.get("/health")
-    async def health():
-        return {"status": "healthy", "timestamp": datetime.now().isoformat()}
-    
-    @app.get("/stock/{symbol}")
-    async def get_stock_minimal(symbol: str):
-        try:
-            # Import fundamentus apenas quando necessário
-            import fundamentus
-            
-            def convert_to_serializable(obj):
-                if hasattr(obj, 'value') and hasattr(obj, 'title'):
-                    return {
-                        'title': obj.title,
-                        'value': float(obj.value) if isinstance(obj.value, Decimal) else obj.value,
-                        'tooltip': getattr(obj, 'tooltip', '')
-                    }
-                elif isinstance(obj, dict):
-                    return {key: convert_to_serializable(value) for key, value in obj.items()}
-                elif isinstance(obj, list):
-                    return [convert_to_serializable(item) for item in obj]
-                elif isinstance(obj, Decimal):
-                    return float(obj)
-                else:
-                    return obj
-            
-            # Executar pipeline
-            pipeline = fundamentus.Pipeline(symbol.upper())
-            response = pipeline.get_all_information()
-            
-            # Extrair dados essenciais
-            data = {
-                "ticker": symbol.upper(),
-                "extraction_date": datetime.now().strftime("%Y-%m-%d"),
-                "price_information": convert_to_serializable(
-                    response.transformed_information.get('price_information', {})
-                ),
-                "valuation_indicators": convert_to_serializable(
-                    response.transformed_information.get('valuation_indicators', {})
-                )
-            }
-            
-            return data
-            
-        except Exception as e:
-            raise HTTPException(status_code=404, detail=f"Erro: {str(e)}")
-    
-    # Handler para Vercel
-    handler = app
+from fastapi import FastAPI, HTTPException
 
-except ImportError:
-    # Fallback se FastAPI não funcionar
-    def handler(request):
+app = FastAPI()
+
+def convert_to_serializable(obj):
+    """Converte objetos InformationItem para formato serializável"""
+    if hasattr(obj, 'value') and hasattr(obj, 'title'):
         return {
-            "statusCode": 200,
-            "body": json.dumps({"error": "FastAPI not available", "message": "Minimal fallback"})
+            'title': obj.title,
+            'value': float(obj.value) if isinstance(obj.value, Decimal) else obj.value,
+            'tooltip': getattr(obj, 'tooltip', '')
         }
+    elif isinstance(obj, dict):
+        return {key: convert_to_serializable(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_to_serializable(item) for item in obj]
+    elif isinstance(obj, Decimal):
+        return float(obj)
+    else:
+        return obj
+
+@app.get("/")
+def root():
+    """Endpoint raiz"""
+    return {
+        "message": "Fundamentus API - Ultra Minimal",
+        "status": "online",
+        "version": "1.0.0-ultra-minimal",
+        "endpoints": {
+            "/": "Informações da API",
+            "/health": "Status de saúde",
+            "/stock/{symbol}": "Dados de ações"
+        }
+    }
+
+@app.get("/health")
+def health():
+    """Endpoint de saúde"""
+    return {
+        "status": "healthy", 
+        "timestamp": datetime.now().isoformat(),
+        "service": "fundamentus-api"
+    }
+
+@app.get("/stock/{symbol}")
+def get_stock_data(symbol: str):
+    """Obter dados de uma ação"""
+    try:
+        # Import fundamentus localmente
+        import fundamentus
+        
+        # Executar pipeline
+        pipeline = fundamentus.Pipeline(symbol.upper())
+        response = pipeline.get_all_information()
+        
+        # Extrair apenas dados essenciais para evitar problemas
+        transformed = response.transformed_information
+        
+        result = {
+            "ticker": symbol.upper(),
+            "extraction_date": datetime.now().strftime("%Y-%m-%d"),
+            "status": "success"
+        }
+        
+        # Adicionar dados se disponíveis
+        if 'price_information' in transformed:
+            result["price_information"] = convert_to_serializable(transformed['price_information'])
+        
+        if 'valuation_indicators' in transformed:
+            result["valuation_indicators"] = convert_to_serializable(transformed['valuation_indicators'])
+            
+        if 'profitability_indicators' in transformed:
+            result["profitability_indicators"] = convert_to_serializable(transformed['profitability_indicators'])
+        
+        return result
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=404, 
+            detail={
+                "error": "Erro ao obter dados da ação",
+                "symbol": symbol.upper(),
+                "message": str(e)
+            }
+        )
+
+# Para compatibilidade com Vercel
+def handler(event, context):
+    """Handler para AWS Lambda/Vercel"""
+    return app
