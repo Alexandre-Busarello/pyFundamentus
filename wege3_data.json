@@ -1,0 +1,291 @@
+{
+  "ticker": "WEGE3",
+  "extraction_date": "2025-09-23",
+  "price_information": {
+    "price": {
+      "title": "Cotação",
+      "value": 37.11,
+      "tooltip": "Cotação de fechamento da ação no último pregão."
+    },
+    "date": {
+      "title": "Última cotação",
+      "value": "22/09/2025",
+      "tooltip": "Data do último pregão em  que o ativo foi negociado."
+    }
+  },
+  "detailed_information": {
+    "stock_type": {
+      "title": "Tipo",
+      "value": "ON N1",
+      "tooltip": "ON = Ordinária, PN = Preferencial, PNA = Pref. tipo A, etc."
+    },
+    "traded_volume_per_day": {
+      "title": "Volume negociado por dia",
+      "value": 376920000.0,
+      "tooltip": "Valor médio de negociação diária da ação, considerando os últimos 2 meses (R$)."
+    },
+    "equity_value_per_share": {
+      "title": "VPA",
+      "value": 5.29,
+      "tooltip": "Valor Patrimonial por Ação: Valor do Patrimônio Líquido dividido pelo número total de ações."
+    },
+    "earnings_per_share": {
+      "title": "LPA",
+      "value": 1.53,
+      "tooltip": "Lucro por Ação."
+    },
+    "variation_52_weeks": {
+      "lowest_value": {
+        "title": "Mínimo",
+        "value": 35.6,
+        "tooltip": "Menor cotação da ação nos últimos 12 meses."
+      },
+      "highest_value": {
+        "title": "Máximo",
+        "value": 57.65,
+        "tooltip": "Maior cotação da ação nos últimos 12 meses."
+      }
+    }
+  },
+  "oscillations": {
+    "variation_day": {
+      "title": "dia",
+      "value": 0.0209,
+      "tooltip": ""
+    },
+    "variation_month": {
+      "title": "mês",
+      "value": -0.0146,
+      "tooltip": ""
+    },
+    "variation_30_days": {
+      "title": "30 dias",
+      "value": 0.0334,
+      "tooltip": ""
+    },
+    "variation_12_months": {
+      "title": "12 meses",
+      "value": -0.2815,
+      "tooltip": ""
+    },
+    "variation_2022": {
+      "title": "2025",
+      "value": -0.2866,
+      "tooltip": ""
+    },
+    "variation_2021": {
+      "title": "2024",
+      "value": 0.4543,
+      "tooltip": ""
+    },
+    "variation_2020": {
+      "title": "2023",
+      "value": -0.027,
+      "tooltip": ""
+    },
+    "variation_2019": {
+      "title": "2022",
+      "value": 0.1875,
+      "tooltip": ""
+    },
+    "variation_2018": {
+      "title": "2021",
+      "value": -0.1202,
+      "tooltip": ""
+    },
+    "variation_2017": {
+      "title": "2020",
+      "value": 1.169,
+      "tooltip": ""
+    }
+  },
+  "valuation_indicators": {
+    "price_divided_by_profit_title": {
+      "title": "P/L",
+      "value": 24.3,
+      "tooltip": "Preço da ação dividido pelo lucro por ação. O P/L é o número de anos que se levaria para reaver o capital aplicado na compra de uma ação, através do recebimento do lucro gerado pela empresa, considerando que esses lucros permaneçam constantes."
+    },
+    "price_divided_by_asset_value": {
+      "title": "P/VP",
+      "value": 7.01,
+      "tooltip": "Preço da ação dividido pelo Valor Patrimonial por ação. Informa quanto o mercado está disposto a pagar sobre o Patrimônio Líquido da empresa."
+    },
+    "price_divided_by_ebit": {
+      "title": "P/EBIT",
+      "value": 17.4,
+      "tooltip": "Preço da ação dividido pelo EBIT por ação. EBIT é o Lucro antes dos Impostos e Despesas Financeiras. É uma boa aproximação do lucro operacional da empresa."
+    },
+    "price_divided_by_net_revenue": {
+      "title": "PSR",
+      "value": 3.8,
+      "tooltip": "Price Sales Ratio: Preço da ação dividido pela Receita Líquida por ação."
+    },
+    "price_divided_by_total_assets": {
+      "title": "Preço/Ativos",
+      "value": 3.91,
+      "tooltip": "Preço da ação dividido pelos Ativos totais por ação."
+    },
+    "price_divided_by_net_current_assets": {
+      "title": "Preço/Ativ circ liq",
+      "value": 18.09,
+      "tooltip": "Preço da ação dividido pelos Ativos Circulantes Líquidos por ação. Ativo Circ. Líq. é obtido subtraindo os ativos circulantes pelas dívidas de curto e longo prazo, ou seja, após o pagamento de todas as dívidas, quanto sobraria dos ativos mais líquidos da empresa (caixa, estoque, etc)."
+    },
+    "dividend_yield": {
+      "title": "Dividend Yield",
+      "value": 0.022,
+      "tooltip": "Dividendo pago por ação dividido pelo preço da ação. É o rendimento gerado para o dono da ação pelo pagamento de dividendos."
+    },
+    "enterprise_value_by_ebitda": {
+      "title": "EV/EBITDA",
+      "value": 15.46,
+      "tooltip": "Valor da Firma (Enterprise Value dividido pelo EBITDA."
+    },
+    "enterprise_value_by_ebit": {
+      "title": "EV/EBIT",
+      "value": 17.05,
+      "tooltip": "Valor da Firma (Enterprise Value dividido pelo EBIT."
+    },
+    "price_by_working_capital": {
+      "title": "Preço/Capital de giro",
+      "value": 14.1,
+      "tooltip": "Preço da ação dividido pelo capital de giro por ação. Capital de giro é o Ativo Circulante menos Passivo Circulante."
+    }
+  },
+  "profitability_indicators": {
+    "return_on_equity": {
+      "title": "ROE",
+      "value": 0.289,
+      "tooltip": "Retorno sobre o Patrimônio Líquido: Lucro líquido dividido pelo Patrimônio Líquido."
+    },
+    "return_on_invested_capital": {
+      "title": "ROIC",
+      "value": 0.286,
+      "tooltip": "Retorno sobre o Capital Investido: Calculado dividindo-se o EBIT por (Ativos - Fornecedores - Caixa). Informa o retorno que a empresa consegue sobre o capital total aplicado."
+    },
+    "ebit_divided_by_total_assets": {
+      "title": "EBIT/Ativo",
+      "value": 22.5,
+      "tooltip": "EBIT dividido por Ativos totais."
+    },
+    "net_revenue_growth_last_5_years": {
+      "title": "Crescimento receita",
+      "value": 0.176,
+      "tooltip": "Crescimento da Receita Líquida nos últimos 5 anos."
+    },
+    "net_revenue_divided_by_total_assets": {
+      "title": "Giro ativos",
+      "value": 1.03,
+      "tooltip": "Receita Líquida dividido por Ativos Totais. Indica a eficiência com a qual a empresa usa seus ativos para gerar vendas."
+    },
+    "gross_profit_divided_by_net_revenue": {
+      "title": "Margem bruta",
+      "value": 0.336,
+      "tooltip": "Lucro Bruto dividido pela Receita Líquida: Indica a porcentagem de cada R$1 de venda que sobrou após o custo dos produtos/serviços vendidos."
+    },
+    "ebit_divided_by_net_revenue": {
+      "title": "Margem EBIT",
+      "value": 0.219,
+      "tooltip": "EBIT dividido pela Receita Líquida: Indica a porcentagem de cada R$1 de venda que sobrou após o pagamento dos custos dos produtos/serviços vendidos, das despesas com vendas, gerais e administrativas."
+    },
+    "net_income_divided_by_net_revenue": {
+      "title": "Margem líquida",
+      "value": 0.165,
+      "tooltip": "Lucro Líquido dividido pela Receita Líquida."
+    }
+  },
+  "indebtedness_indicators": {
+    "current_liquidity": {
+      "title": "Liquidez corrente",
+      "value": 1.77,
+      "tooltip": "Ativo Circulante dividido pelo Passivo Circulante: Reflete a capacidade de pagamento da empresa no curto prazo."
+    },
+    "gross_debt_by_equity": {
+      "title": "Dívida bruta/Patrim",
+      "value": 0.12,
+      "tooltip": "Dívida Bruta total (Dívida+Debêntures) dividido pelo Patrimônio Líquido."
+    },
+    "net_debt_by_equity": {
+      "title": "Dívida líquida/Patrim",
+      "value": -0.14,
+      "tooltip": "Dívida Bruta total (Dívida+Debêntures) menos caixa dividido pelo Patrimônio Líquido."
+    },
+    "net_debt_by_ebitda": {
+      "title": "Dívida líquida/EBITDA",
+      "value": -0.31,
+      "tooltip": "Dívida Bruta total (Dívida+Debêntures) menos caixa dividido pelo EBITDA."
+    },
+    "equity_by_total_assets": {
+      "title": "PL/Ativos",
+      "value": 0.56,
+      "tooltip": "Patrimônio Líquido sobre Ativos"
+    }
+  },
+  "balance_sheet": {
+    "total_assets": {
+      "title": "Ativo",
+      "value": 39836800000.0,
+      "tooltip": "Todos os bens, direitos e valores a receber de uma entidade."
+    },
+    "current_assets": {
+      "title": "Ativo circulante",
+      "value": 25299300000.0,
+      "tooltip": "Bens ou direitos que podem ser convertido em dinheiro em curto prazo."
+    },
+    "cash": {
+      "title": "Disponibilidades",
+      "value": 5668600000.0,
+      "tooltip": "Contas que representam bens numerários (Dinheiro)."
+    },
+    "gross_debt": {
+      "title": "Dívida bruta",
+      "value": 2584150000.0,
+      "tooltip": "Dívida Bruta é obtida somando-se as dívidas de curto e longo prazo mais as debêntures de curto e longo prazo."
+    },
+    "net_debt": {
+      "title": "Dívida líquida",
+      "value": -3084450000.0,
+      "tooltip": "Dívida Bruta menos Disponibilidades. Se este valor é negativo, significa que a empresa possui caixa líquido positivo."
+    },
+    "equity": {
+      "title": "Patrimônio líquido",
+      "value": 22215900000.0,
+      "tooltip": "O patrimônio líquido representa os valores que os sócios ou acionistas têm na empresa em um determinado momento. No balanço patrimonial, a diferença entre o valor dos ativos e dos passivos e resultado de exercícios futuros representa o PL (Patrimônio Líquido), que é o valor contábil devido pela pessoa jurídica aos sócios ou acionistas."
+    }
+  },
+  "income_statement": {
+    "three_months": {
+      "revenue": {
+        "title": "Receita líquida",
+        "value": 10207200000.0,
+        "tooltip": "Receita Líquida é a soma de todas as vendas da empresa em determinado período deduzido de devoluções, descontos e alguns impostos."
+      },
+      "ebit": {
+        "title": "EBIT",
+        "value": 2220230000.0,
+        "tooltip": "Earnings Before Interest and Taxes - Lucro antes dos impostos e juros: Uma aproximação do lucro operacional da empresa. Fórmula utilizada: Lucro bruto - desp de vendas - desp administrativas"
+      },
+      "net_income": {
+        "title": "Lucro líquido",
+        "value": 1591950000.0,
+        "tooltip": "O que sobra das vendas após a dedução de todas as despesas."
+      }
+    },
+    "twelve_months": {
+      "revenue": {
+        "title": "Receita líquida",
+        "value": 40965000000.0,
+        "tooltip": "Receita Líquida é a soma de todas as vendas da empresa em determinado período deduzido de devoluções, descontos e alguns impostos."
+      },
+      "ebit": {
+        "title": "EBIT",
+        "value": 8954270000.0,
+        "tooltip": "Earnings Before Interest and Taxes - Lucro antes dos impostos e juros: Uma aproximação do lucro operacional da empresa. Fórmula utilizada: Lucro bruto - desp de vendas - desp administrativas"
+      },
+      "net_income": {
+        "title": "Lucro líquido",
+        "value": 6410960000.0,
+        "tooltip": "O que sobra das vendas após a dedução de todas as despesas."
+      }
+    }
+  }
+}
